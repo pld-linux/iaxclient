@@ -1,0 +1,11 @@
+--- iaxclient/lib/Makefile.orig	2005-03-29 05:49:54.000000000 +0200
++++ iaxclient/lib/Makefile	2005-03-29 05:50:31.000000000 +0200
+@@ -30,7 +30,7 @@
+ 	-Ilibspeex/include
+ 
+ #CFLAGS:= $(CFLAGS) -g -Wall -Wpointer-arith
+-CFLAGS:= $(CFLAGS) -g -O2 
++CFLAGS:= $(CFLAGS) -O2 
+ 
+ CFLAGS:= $(CFLAGS) -DLIBVER='"CVS-$(shell date +%Y/%m/%d-%H:%M)"'
+ 
