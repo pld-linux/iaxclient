@@ -1,9 +1,10 @@
+# TODO: optflags
 #
 # Conditional build:
 %bcond_with	examples		# build with example apps
 #
-Summary:	a portable IAX/IAX2 protocol telephony client library.
-Summary(pl):	przeno¶na biblioteka kliencka protoku³u IAX/IAX2
+Summary:	A portable IAX/IAX2 protocol telephony client library
+Summary(pl):	Przeno¶na biblioteka kliencka protoko³u IAX/IAX2
 Name:		iaxclient
 Version:	20050329
 Release:	0.1
@@ -20,6 +21,18 @@ IAXClient is an Open Source library to implement the IAX protocol.
 
 %description -l pl
 IAXClient jest bibliotek± Open Source iplementuj±c± protokó³ IAX.
+
+%package devel
+Summary:	Header files for IAXClient library
+Summary(pl):	Pliki nag³ówkowe biblioteki IAXClient
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Header files for IAXClient library.
+
+%description devel -l pl
+Pliki nag³ówkowe biblioteki IAXClient.
 
 %package static
 Summary:	Static IAXClient library
@@ -38,7 +51,6 @@ Statyczna biblioteka IAXClient.
 %patch0 -p1
 
 %build
-
 cd lib
 %{__make}
 %{__make} shared
@@ -46,60 +58,42 @@ cd ..
 
 %if %{with examples}
 cd simpleclient
-cd iax2slin
-%{__make}
-cd ..
+%{__make} -C iax2slin
 
-cd testcall
-%{__make}
-cd ..
+%{__make} -C testcall
 
 # WX-windows and gtk required!
-cd iaxcomm
-%{__make}
-cd ..
-
-# WX-windows and gtk required!
-cd iaxcomm
-%{__make}
-cd ..
+%{__make} -C iaxcomm
 
 # Tk/Tcl
-cd tkphone
-%{__make}
-cd ..
+%{__make} -C tkphone
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_libdir}
 
 install lib/libiaxclient.{so,a} $RPM_BUILD_ROOT%{_libdir}
-install lib/iaxclient.h $RPM_BUILD_ROOT%{_includedir}/
+install lib/iaxclient.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%pre
-
-%post
-
-%preun
-
-%postun
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
-
 %attr(755,root,root) %{_libdir}/lib*.so
 
-# initscript and its config
 %attr(754,root,root) /etc/rc.d/init.d/%{name}
 %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/%{name}
 
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/*.h
+
 %files static
 %defattr(644,root,root,755)
-#%doc extras/*.gz
 %{_libdir}/lib*.a
