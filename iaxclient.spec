@@ -6,12 +6,12 @@
 Summary:	A portable IAX/IAX2 protocol telephony client library
 Summary(pl):	Przeno¶na biblioteka kliencka protoko³u IAX/IAX2
 Name:		iaxclient
-Version:	20050329
-Release:	1
+Version:	20050606
+Release:	0.1
 License:	LGPL
 Group:		Development/Libraries
-Source0:	http://duch.mimuw.edu.pl/~hunter/iax/%{name}-snap-%{version}.tar.gz
-# Source0-md5:	3a8b5d32f3866e3852a4bff5d868784a
+Source0:	%{name}-%{version}.tar.bz2
+# Source0-md5:	82928ec5074f11d32d6b0def4242d11b
 Patch0:		%{name}-nodebug.patch
 Patch1:		%{name}-Makefile.patch
 URL:		http://iaxclient.sourceforge.net/
@@ -49,7 +49,7 @@ Statyczna biblioteka IAXClient.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p0
 
 %build
