@@ -1,11 +1,15 @@
---- lib/Makefile.orig	2005-06-06 09:50:11.711944808 +0200
-+++ lib/Makefile	2005-06-06 09:52:04.599783248 +0200
-@@ -30,7 +30,7 @@
- 	-Ilibspeex/include
+--- lib/Makefile.orig	2005-05-13 21:19:37.000000000 +0200
++++ lib/Makefile	2005-06-06 22:29:50.682888008 +0200
+@@ -27,9 +27,9 @@
+ 
+ USE_VIDEO=0
+ 
+-CFLAGS= -I. -Igsm/inc \
+-	-Iportaudio/pa_common -Iportaudio/pablio -Iportmixer/px_common \
+-	-Ilibspeex/include --std=c99
++CFLAGS= -I. -Igsm/inc \
++	-Iportaudio/pa_common -Iportaudio/pablio -Iportmixer/px_common \
++	-Ilibspeex/include --std=c99 -fPIC
  
  #CFLAGS:= $(CFLAGS) -g -Wall -Wpointer-arith
--CFLAGS:= $(CFLAGS) -O2 
-+CFLAGS:= $(CFLAGS) -O2 -fPIC
- 
- CFLAGS:= $(CFLAGS) -DLIBVER='"CVS-$(shell date +%Y/%m/%d-%H:%M)"'
- 
+ CFLAGS:= $(CFLAGS) -g -O2
