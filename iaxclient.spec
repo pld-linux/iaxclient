@@ -7,7 +7,7 @@ Summary:	A portable IAX/IAX2 protocol telephony client library
 Summary(pl):	Przeno¶na biblioteka kliencka protoko³u IAX/IAX2
 Name:		iaxclient
 Version:	20050329
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		Development/Libraries
 Source0:	http://duch.mimuw.edu.pl/~hunter/iax/%{name}-snap-%{version}.tar.gz
@@ -74,6 +74,8 @@ cd simpleclient
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}
+install -d $RPM_BUILD_ROOT%{_includedir}
+install -d $RPM_BUILD_ROOT%{_docdir}
 
 install lib/libiaxclient.{so,a} $RPM_BUILD_ROOT%{_libdir}
 install lib/iaxclient.h $RPM_BUILD_ROOT%{_includedir}
@@ -86,11 +88,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
+%doc README
 %attr(755,root,root) %{_libdir}/lib*.so
 
-%attr(754,root,root) /etc/rc.d/init.d/%{name}
-%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/%{name}
+#%attr(754,root,root) /etc/rc.d/init.d/%{name}
+#%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/%{name}
 
 %files devel
 %defattr(644,root,root,755)
