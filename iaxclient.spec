@@ -51,6 +51,7 @@ Statyczna biblioteka IAXClient.
 %patch0 -p1
 
 %build
+CFLAGS="%{rpmcflags} -fPIC"
 cd lib
 %{__make}
 %{__make} shared
