@@ -1,0 +1,11 @@
+--- lib/Makefile.orig	2005-06-06 09:50:11.711944808 +0200
++++ lib/Makefile	2005-06-06 09:52:04.599783248 +0200
+@@ -30,7 +30,7 @@
+ 	-Ilibspeex/include
+ 
+ #CFLAGS:= $(CFLAGS) -g -Wall -Wpointer-arith
+-CFLAGS:= $(CFLAGS) -O2 
++CFLAGS:= $(CFLAGS) -O2 -fPIC
+ 
+ CFLAGS:= $(CFLAGS) -DLIBVER='"CVS-$(shell date +%Y/%m/%d-%H:%M)"'
+ 

@@ -13,6 +13,7 @@ Group:		Development/Libraries
 Source0:	http://duch.mimuw.edu.pl/~hunter/iax/%{name}-snap-%{version}.tar.gz
 # Source0-md5:	3a8b5d32f3866e3852a4bff5d868784a
 Patch0:		%{name}-nodebug.patch
+Patch1:		%{name}-Makefile.patch
 URL:		http://iaxclient.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,9 +50,9 @@ Statyczna biblioteka IAXClient.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p0
 
 %build
-CFLAGS="%{rpmcflags} -fPIC"
 cd lib
 %{__make}
 %{__make} shared
