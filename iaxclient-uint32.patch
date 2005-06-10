@@ -7,7 +7,7 @@ Index: trunk/lib/libiax2/src/md5.h
  #define MD5_H
  
 -#ifdef __alpha
-+#if defined(__alpha) || defined(__LP64__)
++#if defined(__alpha) || defined(_LP64)
  typedef unsigned int uint32;
  #else
  typedef unsigned long uint32;
@@ -37,7 +37,7 @@ Index: trunk/lib/portaudio/pa_common/pa_host.h
  
  #ifndef int32
 -    typedef long int32;
-+    #ifdef _LP64
++    #if defined(_LP64) || defined(__alpha)
 +		typedef int int32;
 +    #else
 +        typedef long int32;
@@ -45,7 +45,7 @@ Index: trunk/lib/portaudio/pa_common/pa_host.h
  #endif
  #ifndef uint32
 -    typedef unsigned long uint32;
-+    #ifdef _LP64
++    #if defined(_LP64) || defined(__alpha)
 +		typedef unsigned int uint32;
 +    #else
 +        	typedef unsigned long uint32;
