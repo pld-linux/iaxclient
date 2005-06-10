@@ -1,0 +1,55 @@
+Index: trunk/lib/libiax2/src/md5.h
+===================================================================
+--- trunk/lib/libiax2/src/md5.h	(wersja 1116)
++++ trunk/lib/libiax2/src/md5.h	(wersja 1117)
+@@ -1,7 +1,7 @@
+ #ifndef MD5_H
+ #define MD5_H
+ 
+-#ifdef __alpha
++#if defined(__alpha) || defined(__LP64__)
+ typedef unsigned int uint32;
+ #else
+ typedef unsigned long uint32;
+Index: trunk/lib/gsm/inc/private.h
+===================================================================
+--- trunk/lib/gsm/inc/private.h	(wersja 1161)
++++ trunk/lib/gsm/inc/private.h	(wersja 1162)
+@@ -10,10 +10,10 @@
+ #define	PRIVATE_H
+ 
+ typedef short			word;		/* 16 bit signed int	*/
+-typedef long			longword;	/* 32 bit signed int	*/
++typedef signed int		longword;	/* 32 bit signed int	*/
+ 
+ typedef unsigned short		uword;		/* unsigned word	*/
+-typedef unsigned long		ulongword;	/* unsigned longword	*/
++typedef unsigned int		ulongword;	/* unsigned longword	*/
+ 
+ struct gsm_state {
+ 
+Index: trunk/lib/portaudio/pa_common/pa_host.h
+===================================================================
+--- trunk/lib/portaudio/pa_common/pa_host.h	(wersja 1161)
++++ trunk/lib/portaudio/pa_common/pa_host.h	(wersja 1162)
+@@ -49,10 +49,18 @@
+ #endif
+ 
+ #ifndef int32
+-    typedef long int32;
++    #ifdef _LP64
++		typedef int int32;
++    #else
++        typedef long int32;
++    #endif
+ #endif
+ #ifndef uint32
+-    typedef unsigned long uint32;
++    #ifdef _LP64
++		typedef unsigned int uint32;
++    #else
++        	typedef unsigned long uint32;
++    #endif
+ #endif
+ #ifndef int16
+     typedef short int16;
