@@ -2,12 +2,13 @@
 #
 # Conditional build:
 %bcond_with	examples		# build with example apps
+%bcond_with	iLBC			# build with iLBC (free to non-commercial usage)
 #
 Summary:	A portable IAX/IAX2 protocol telephony client library
 Summary(pl):	Przeno¶na biblioteka kliencka protoko³u IAX/IAX2
 Name:		iaxclient
 Version:	20050606
-Release:	0.1
+Release:	0.2
 License:	LGPL
 Group:		Development/Libraries
 Source0:	%{name}-%{version}.tar.bz2
@@ -15,6 +16,7 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-nodebug.patch
 Patch1:		%{name}-Makefile.patch
 Patch2:		%{name}-uint32.patch
+Patch3:		%{name}-iLBC.patch
 URL:		http://iaxclient.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -53,6 +55,9 @@ Statyczna biblioteka IAXClient.
 #%patch0 -p1
 %patch1 -p0
 %patch2 -p1
+%if %{with iLBC}
+%patch3 -p1
+%endif
 
 %build
 cd lib
