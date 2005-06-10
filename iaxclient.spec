@@ -14,6 +14,7 @@ Source0:	%{name}-%{version}.tar.bz2
 # Source0-md5:	82928ec5074f11d32d6b0def4242d11b
 Patch0:		%{name}-nodebug.patch
 Patch1:		%{name}-Makefile.patch
+Patch2:		%{name}-uint32.patch
 URL:		http://iaxclient.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,6 +52,7 @@ Statyczna biblioteka IAXClient.
 %setup -q -n %{name}
 #%patch0 -p1
 %patch1 -p0
+%patch2 -p1
 
 %build
 cd lib
