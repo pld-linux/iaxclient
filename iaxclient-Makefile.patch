@@ -1,12 +1,18 @@
-diff -urN iaxclient.org/lib/Makefile iaxclient/lib/Makefile
---- iaxclient.org/lib/Makefile	2006-04-12 22:29:56.000000000 +0200
-+++ iaxclient/lib/Makefile	2006-04-12 22:35:58.135149500 +0200
-@@ -29,7 +29,7 @@
+--- iaxclient/lib/Makefile.orig	2006-04-12 22:29:56.000000000 +0200
++++ iaxclient/lib/Makefile	2006-04-13 01:25:29.000000000 +0200
+@@ -27,12 +27,12 @@
  
- CFLAGS= -I. -Igsm/inc \
+ USE_VIDEO=0
+ 
+-CFLAGS= -I. -Igsm/inc \
++CFLAGS:= $(CFLAGS) -I. -Igsm/inc \
  	-Iportaudio/pa_common -Iportaudio/pablio -Iportmixer/px_common \
 -	-Ilibspeex/include --std=c99 -Wall -Wmissing-noreturn
 +	-Ilibspeex/include --std=c99 -Wall -Wmissing-noreturn -fPIC
  
  #CFLAGS:= $(CFLAGS) -g -Wall -Wpointer-arith
- CFLAGS:= $(CFLAGS) -g -O2
+-CFLAGS:= $(CFLAGS) -g -O2
++#CFLAGS:= $(CFLAGS) -g -O2
+ 
+ CFLAGS:= $(CFLAGS) -DLIBVER='"CVS-$(shell date +%Y/%m/%d-%H:%M)"'
+ 
