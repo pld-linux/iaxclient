@@ -60,6 +60,7 @@ Statyczna biblioteka IAXClient.
 %endif
 
 %build
+export CFLAGS="%{rpmcflags}"
 cd lib
 %{__make} \
 	CC="%{__cc}"
