@@ -7,12 +7,12 @@
 Summary:	A portable IAX/IAX2 protocol telephony client library
 Summary(pl):	Przeno¶na biblioteka kliencka protoko³u IAX/IAX2
 Name:		iaxclient
-Version:	20050606
-Release:	0.2
+Version:	20060412
+Release:	0.1
 License:	LGPL
 Group:		Development/Libraries
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	82928ec5074f11d32d6b0def4242d11b
+# Source0-md5:	3321cb585846c709a79cb45c92dc6781
 Patch0:		%{name}-nodebug.patch
 Patch1:		%{name}-Makefile.patch
 Patch2:		%{name}-uint32.patch
@@ -53,7 +53,7 @@ Statyczna biblioteka IAXClient.
 %prep
 %setup -q -n %{name}
 #%patch0 -p1
-%patch1 -p0
+%patch1 -p1
 %patch2 -p1
 %if %{with iLBC}
 %patch3 -p1
@@ -61,21 +61,27 @@ Statyczna biblioteka IAXClient.
 
 %build
 cd lib
-%{__make}
-%{__make} shared
+%{__make} \
+	CC="%{__cc}"
+%{__make} shared \
+	CC="%{__cc}"
 cd ..
 
 %if %{with examples}
 cd simpleclient
-%{__make} -C iax2slin
+%{__make} -C iax2slin \
+	CC="%{__cc}"
 
-%{__make} -C testcall
+%{__make} -C testcall \
+	CC="%{__cc}"
 
 # WX-windows and gtk required!
-%{__make} -C iaxcomm
+%{__make} -C iaxcomm \
+	CC="%{__cc}"
 
 # Tk/Tcl
-%{__make} -C tkphone
+%{__make} -C tkphone \
+	CC="%{__cc}"
 %endif
 
 %install
