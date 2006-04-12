@@ -12,7 +12,7 @@ Release:	0.1
 License:	LGPL
 Group:		Development/Libraries
 Source0:	%{name}-%{version}.tar.bz2
-# Source0-md5:	3321cb585846c709a79cb45c92dc6781
+# Source0-md5:	c2f0333d4c7cbbf53d703bc409ab7abf
 Patch0:		%{name}-nodebug.patch
 Patch1:		%{name}-Makefile.patch
 Patch2:		%{name}-uint32.patch
