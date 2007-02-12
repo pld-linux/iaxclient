@@ -5,7 +5,7 @@
 %bcond_with	iLBC			# build with iLBC (free to non-commercial usage)
 #
 Summary:	A portable IAX/IAX2 protocol telephony client library
-Summary(pl):	Przeno∂na biblioteka kliencka protoko≥u IAX/IAX2
+Summary(pl.UTF-8):   Przeno≈õna biblioteka kliencka protoko≈Çu IAX/IAX2
 Name:		iaxclient
 Version:	20060412
 Release:	0.1
@@ -23,31 +23,31 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 IAXClient is an Open Source library to implement the IAX protocol.
 
-%description -l pl
-IAXClient jest bibliotek± Open Source iplementuj±c± protokÛ≥ IAX.
+%description -l pl.UTF-8
+IAXClient jest bibliotekƒÖ Open Source iplementujƒÖcƒÖ protok√≥≈Ç IAX.
 
 %package devel
 Summary:	Header files for IAXClient library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki IAXClient
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki IAXClient
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for IAXClient library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki IAXClient.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki IAXClient.
 
 %package static
 Summary:	Static IAXClient library
-Summary(pl):	Statyczna biblioteka IAXClient
+Summary(pl.UTF-8):   Statyczna biblioteka IAXClient
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static IAXClient library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka IAXClient.
 
 %prep
