@@ -5,7 +5,7 @@
 %bcond_with	iLBC			# build with iLBC (free to non-commercial usage)
 #
 Summary:	A portable IAX/IAX2 protocol telephony client library
-Summary(pl.UTF-8):   Przenośna biblioteka kliencka protokołu IAX/IAX2
+Summary(pl.UTF-8):	Przenośna biblioteka kliencka protokołu IAX/IAX2
 Name:		iaxclient
 Version:	20060412
 Release:	0.1
@@ -28,7 +28,7 @@ IAXClient jest biblioteką Open Source iplementującą protokół IAX.
 
 %package devel
 Summary:	Header files for IAXClient library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki IAXClient
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki IAXClient
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -40,7 +40,7 @@ Pliki nagłówkowe biblioteki IAXClient.
 
 %package static
 Summary:	Static IAXClient library
-Summary(pl.UTF-8):   Statyczna biblioteka IAXClient
+Summary(pl.UTF-8):	Statyczna biblioteka IAXClient
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
