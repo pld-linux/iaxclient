@@ -52,7 +52,7 @@ Statyczna biblioteka IAXClient.
 
 %prep
 %setup -q -n %{name}
-#%patch0 -p1
+#%%patch0 -p1
 %patch -P1 -p1
 %patch -P2 -p1
 %if %{with iLBC}
